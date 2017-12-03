@@ -1,0 +1,28 @@
+{
+    "window.zoomLevel": -1,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "files.autoSave": "afterDelay",
+    "workbench.iconTheme": "material-icon-theme",
+    "files.exclude": {
+        "node_modules/": true,
+        ".vscode/": true
+    },
+    "workbench.colorTheme": "Plastic",
+    "sublimeTextKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnPaste": true,
+    "material-icon-theme.folders.icons": "specific",
+    "editor.fontSize": 14,
+    "editor.fontFamily": "'Roboto Mono Medium',consolas",
+    "material-icon-theme.angular.iconsEnabled": true
+}
+{
+ "title" : "missed topics",
+ "loaders": [
+     
+         "for" : "images",
+          "type" : ["file-loader","html-loader"],
+     }
+ ]   
+}

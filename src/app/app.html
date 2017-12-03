@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1> angularjs tutorial 1 </h1> 
+        
+        <div data-ng-app='mainApp'ng-strict-di>
+           
+                    <h1>angular javabrains tutorial</h1>
+                    <!--  <p>{{prop}}</p> -->
+                    <div data-ng-controller="Ctrl1 as c1">
+                        <p>{{c1.prop}}</p>
+                    <div data-ng-controller="Ctrl2 as c2">
+                         <p>{{c2.prop}}</p>
+                    </div>
+            </div>
+        
+            <hr>
+            <div data-ng-app="CalculatorModule">
+            <h1>Calculator APP</h1>
+            <div data-ng-controller="OperationController as Ctrl">
+                <input type="number" data-ng-model="Ctrl.op1">
+                <span data-ng-bind="Ctrl.selectedOperation"></span>
+                <input type="number" data-ng-model="Ctrl.op2">
+                <button data-ng-click="Ctrl.computeResult()">=</button>
+                <span>{{Ctrl.resultValue}}</span>
+                <p>
+                Choose an Operation:
+                    <button data-ng-click = "Ctrl.onBtnClicked('+')">+</button>
+                    <button data-ng-click = "Ctrl.onBtnClicked('-')">-</button>
+                    <button data-ng-click = "Ctrl.onBtnClicked('*')">*</button>
+                    <button data-ng-click = "Ctrl.onBtnClicked('/')">/</button>
+                </p>
+                {{Ctrl.op1}} {{Ctrl.op2}}
+            </div>
+         </div>
+        </div>
+    </body>
+</html>
