@@ -7,38 +7,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <h1> angularjs tutorial 1 </h1> 
         
-        <div data-ng-app='mainApp'ng-strict-di>
-           
-                    <h1>angular javabrains tutorial</h1>
-                    <!--  <p>{{prop}}</p> -->
-                    <div data-ng-controller="Ctrl1 as c1">
-                        <p>{{c1.prop}}</p>
-                    <div data-ng-controller="Ctrl2 as c2">
-                         <p>{{c2.prop}}</p>
-                    </div>
-            </div>
         
+        <div class="container" data-ng-app='mainApp'ng-strict-di>
+            <h1> angularjs tutorial 1 </h1> 
             <hr>
-            <div data-ng-app="CalculatorModule">
-            <h1>Calculator APP</h1>
+            <div class="container" data-ng-app="CalculatorModule">
+            <h4>Calculator</h4>
             <div data-ng-controller="OperationController as Ctrl">
-                <input type="number" data-ng-model="Ctrl.op1">
-                <span data-ng-bind="Ctrl.selectedOperation"></span>
-                <input type="number" data-ng-model="Ctrl.op2">
-                <button data-ng-click="Ctrl.computeResult()">=</button>
-                <span>{{Ctrl.resultValue}}</span>
-                <p>
+                <div class="row">
+                <input class="col-4" type="number" data-ng-model="Ctrl.op1">
+                <span class ="col-1" data-ng-bind="Ctrl.selectedOperation"></span>
+                <input class="col-4" type="number" data-ng-model="Ctrl.op2">
+                <button class="col-1 btn btn-primary" data-ng-click="Ctrl.computeResult()">=</button>
+                <span class="col-2">{{Ctrl.resultValue}}</span>
+                </div>
+                <div class="container">
                 Choose an Operation:
-                    <button data-ng-click = "Ctrl.onBtnClicked('+')">+</button>
-                    <button data-ng-click = "Ctrl.onBtnClicked('-')">-</button>
-                    <button data-ng-click = "Ctrl.onBtnClicked('*')">*</button>
-                    <button data-ng-click = "Ctrl.onBtnClicked('/')">/</button>
-                </p>
+                    <button class="btn btn-success" data-ng-click = "Ctrl.onBtnClicked('+')">+</button>
+                    <button class="btn btn-info" data-ng-click = "Ctrl.onBtnClicked('-')">-</button>
+                    <button class="btn btn-warning" data-ng-click = "Ctrl.onBtnClicked('*')">*</button>
+                    <button class="btn btn-danger" data-ng-click = "Ctrl.onBtnClicked('/')">/</button>
+                
                 {{Ctrl.op1}} {{Ctrl.op2}}
             </div>
+            </div>
          </div>
+         <hr/> 
+         
+         <div class="container" data-ng-app="ContactModule">
+             <h4>contacts </h4>
+            <div class="row">
+            <div class="col-xs-12 col-md-8 col-lg-6" data-ng-controller="ContactController as ctCtrl">
+                    <ul class="list-group" data-ng-repeat="contact in ctCtrl.contacts">
+                        <li class="list-group-item">{{contact.name.first + " "+contact.name.last}}</li>
+                    </ul>
+            </div>
+            </div>
+         </div>
+
+
         </div>
     </body>
 </html>

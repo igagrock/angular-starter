@@ -47,6 +47,17 @@ const config = {
            ]
         })
       },
+      {  
+        test: /\.css$/,
+        include: path.resolve(__dirname, 'node_modules/bootstrap-css/lib/'),
+        use: ExtractTextPlugin.extract({
+          fallback :'style-loader',
+           use : [
+             {loader:"css-loader",options:{sourceMap: true}},
+             {loader:"postcss-loader",options:{sourceMap: true}}
+           ]
+        })
+      },
       {
         test: /\.(jp(e*)g|svg)$/, 
         include: path.resolve(__dirname, 'src/app/images'),
@@ -106,7 +117,7 @@ const config = {
         proxy: 'http://localhost:3000/'
       },
       {
-        reload: false
+        reload: true
       }
     )
   ]
