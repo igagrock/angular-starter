@@ -20,7 +20,13 @@
             {"gender":"female","name":{"title":"mrs","first":"joanne","last":"smith"},"location":{"street":"9327 poplar dr","city":"allentown","state":"north carolina","postcode":48871},"email":"joanne.smith@example.com","login":{"username":"redlion358","password":"suck","salt":"hNLXuLCv","md5":"66b4359ee4e3115064f82ad48f304ddb","sha1":"8a6a09a6d30384dde3e03b6c3f5d35ffcc96ee61","sha256":"3a021f127008ec73461cfeb15aa7dcc0424696e0c4aa0080a238482f2e9833ff"},"dob":"1967-09-09 16:39:46","registered":"2008-03-13 02:18:22","phone":"(434)-858-7555","cell":"(132)-692-5066","id":{"name":"SSN","value":"469-12-3748"},"picture":{"large":"https://randomuser.me/api/portraits/women/44.jpg","medium":"https://randomuser.me/api/portraits/med/women/44.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/44.jpg"},"nat":"US"}
         
         ];
-        console.log(this.contacts);
+        this.selectedContact = this.contacts[0];
+        this.activeIndex = 0;
+        this.selectContact = function(index){
+            this.selectedContact = this.contacts[index];  
+            console.log("selectContact -- ", this.selectedContact);
+            this.activeIndex = index;
+        };
     });
 
 
