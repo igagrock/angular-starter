@@ -4,12 +4,12 @@
  */
 
  import angular from 'angular';
- import CalculatorModule from "./components/caculator/CaculatorModule";
- import ContactModule from "./components/contact/ContactModule"
+ import caculatorComp from "./components/caculator/Caculator.Component";
+ import contactComp from "./components/contact/Contact.Component"
 
  import buttons from 'bootstrap-css'
 
- var MyAppModule = angular.module("mainApp" , ["CalculatorModule","ContactModule"]);
+ var MyAppModule = angular.module("mainApp" , ["caculatorComp","contactComp"]);
 
  MyAppModule.controller('Ctrl1', controller1);
  MyAppModule.controller('Ctrl2', controller2);
