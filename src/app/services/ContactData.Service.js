@@ -1,7 +1,7 @@
 
 /*@ngInject*/
 export default class contactService{
-    constructor(){
+    constructor($http){
         this.data = [
             {"gender":"female","name":{"title":"ms","first":"divineide","last":"freitas"},"location":{"street":"7064 beco dos namorados","city":"itaboraí","state":"sergipe","postcode":11081},"email":"divineide.freitas@example.com","login":{"username":"bigpanda308","password":"stone","salt":"EnmRq5YJ","md5":"f12f6e940456012a24a47a87a526e320","sha1":"10d53fa1a0f8b8b7da8b404327a1d52306cf939b","sha256":"41269293e42782c0db43974de74aedb3f2ad4c87459d7480cefbb5babccec509"},"dob":"1973-09-14 13:40:02","registered":"2005-10-20 07:27:00","phone":"(85) 6353-4440","cell":"(13) 3939-0498","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/12.jpg","medium":"https://randomuser.me/api/portraits/med/women/12.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/12.jpg"},"nat":"BR"},
             {"gender":"male","name":{"title":"mr","first":"martin","last":"eijkemans"},"location":{"street":"4864 drift","city":"renkum","state":"friesland","postcode":10241},"email":"martin.eijkemans@example.com","login":{"username":"heavyelephant144","password":"goodbye","salt":"ufvwBgX8","md5":"197027fa7107995838d89d4353555365","sha1":"08dad1cce41e8c0bdd7a328a28e02da979ffb04a","sha256":"a185dc65dfffd770618aec212af76c5983e004ca2d2c985e2319cf402c0995b8"},"dob":"1954-10-16 17:13:41","registered":"2002-05-17 18:34:45","phone":"(124)-746-1547","cell":"(925)-669-3002","id":{"name":"BSN","value":"35970098"},"picture":{"large":"https://randomuser.me/api/portraits/men/58.jpg","medium":"https://randomuser.me/api/portraits/med/men/58.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/58.jpg"},"nat":"NL"},
@@ -16,6 +16,20 @@ export default class contactService{
             {"gender":"male","name":{"title":"mr","first":"steve","last":"van de hoef"},"location":{"street":"2825 paardenveld","city":"zoetermeer","state":"zuid-holland","postcode":33538},"email":"steve.vandehoef@example.com","login":{"username":"ticklishtiger989","password":"curtis","salt":"nR7gBU0o","md5":"93674fd5b9a5d9f1d563286dda2d5bc7","sha1":"8ced4730b06efeb3813d292fe89de4a827f4b7b9","sha256":"1a978f095aa21fc21ac55f15e96ad334ea794a82899704a1744508317d15c7a5"},"dob":"1967-11-25 03:40:43","registered":"2009-11-22 15:28:58","phone":"(098)-398-1751","cell":"(477)-820-1239","id":{"name":"BSN","value":"85347098"},"picture":{"large":"https://randomuser.me/api/portraits/men/5.jpg","medium":"https://randomuser.me/api/portraits/med/men/5.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/5.jpg"},"nat":"NL"},
             {"gender":"female","name":{"title":"mrs","first":"joanne","last":"smith"},"location":{"street":"9327 poplar dr","city":"allentown","state":"north carolina","postcode":48871},"email":"joanne.smith@example.com","login":{"username":"redlion358","password":"suck","salt":"hNLXuLCv","md5":"66b4359ee4e3115064f82ad48f304ddb","sha1":"8a6a09a6d30384dde3e03b6c3f5d35ffcc96ee61","sha256":"3a021f127008ec73461cfeb15aa7dcc0424696e0c4aa0080a238482f2e9833ff"},"dob":"1967-09-09 16:39:46","registered":"2008-03-13 02:18:22","phone":"(434)-858-7555","cell":"(132)-692-5066","id":{"name":"SSN","value":"469-12-3748"},"picture":{"large":"https://randomuser.me/api/portraits/women/44.jpg","medium":"https://randomuser.me/api/portraits/med/women/44.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/44.jpg"},"nat":"US"}
         
-        ];
+        ];  
+        this.get = function(){
+           return $http.get("http://localhost:3000/contacts")
+            .then(function(resp){
+                return resp.data;
+            });
+            
+        }
+        this.update = function(userData){
+           return $http.put("http://localhost:3000/contacts/"+userData.id , userData)
+            .then(function(resp){
+                console.log(resp.data);
+            });
+        }
+    
     }
 }

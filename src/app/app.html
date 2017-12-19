@@ -38,12 +38,12 @@
          </div> -->
 
     <div class="container" data-ng-app="ContactModule">
-        
+
         <div class="row" data-ng-controller="HeaderController as headerCtrl">
-                <h4> {{headerCtrl.appName}} </h4>
+            <h4> {{headerCtrl.appName}} </h4>
         </div>
 
-        
+
         <div class="row" data-ng-controller="ContactController as ctCtrl">
             <div class="col-md-6">
                 <div class="list-group">
@@ -55,27 +55,61 @@
                 </div>
             </div>
             <div class="col-md-6">
+                <div class="alert alert-success" data-ng-if="ctCtrl.isUpdateSuccess">{{ctCtrl.successMessage}}</div>
+                <div class="alert alert-warning" data-ng-if="ctCtrl.isUpdateFailure">{{ctCtrl.failureMessage}}</div>
                 <div class="card" style="width: 20rem;">
                     <img class="card-img-top" style="min-height:300px;" data-ng-src="{{ ctCtrl.selectedContact.picture.large }}" alt="Card image cap">
                     <div class="card-body">
                         <p class="card-text ">{{ctCtrl.selectedContact.name.first + " "+ctCtrl.selectedContact.name.last}}</p>
+                        <button class="btn btn-info" data-ng-click="ctCtrl.updateContact()">{{ctCtrl.editMode ? "Done" : "Edit"}}</button>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{ctCtrl.selectedContact.location.street+ " / "+ctCtrl.selectedContact.location.city}}</li>
-                        <li class="list-group-item">{{ctCtrl.selectedContact.location.state+ " / "+ctCtrl.selectedContact.location.postcode}}</li>
-                        <li class="list-group-item">{{ctCtrl.selectedContact.email}}</li>
-                        <li class="list-group-item">{{ctCtrl.selectedContact.phone}}</li>
+                        <li class="list-group-item">
+                            <span> Street : </span> <span data-ng-hide="ctCtrl.editMode">{{ ctCtrl.selectedContact.location.street }} </span>
+                            <input type="text" data-ng-show="ctCtrl.editMode" data-ng-model="ctCtrl.selectedContact.location.street" >
+                        </li>
+                        <li class="list-group-item">
+                            <span> City: </span> <span data-ng-hide="ctCtrl.editMode">{{ ctCtrl.selectedContact.location.city}}</span>
+                            <input type="text" data-ng-show="ctCtrl.editMode" data-ng-model="ctCtrl.selectedContact.location.city" >
+                        </li>
+                        <li class="list-group-item">
+                            <span> State: </span> <span data-ng-hide="ctCtrl.editMode">{{ ctCtrl.selectedContact.location.state}}</span>
+                            <input type="text" data-ng-show="ctCtrl.editMode" data-ng-model="ctCtrl.selectedContact.location.state" >
+                        </li>
+                        <li class="list-group-item">
+                            <span> PIN: </span> <span data-ng-hide="ctCtrl.editMode"> {{ ctCtrl.selectedContact.location.postcode}}</span>
+                            <input type="text" data-ng-show="ctCtrl.editMode" data-ng-model="ctCtrl.selectedContact.location.postcode" >
+                        <li class="list-group-item">
+                            <span> Email: </span> <span data-ng-hide="ctCtrl.editMode">{{ctCtrl.selectedContact.email}} </span>
+                            <input type="text" data-ng-show="ctCtrl.editMode" data-ng-model="ctCtrl.selectedContact.email">
+                        </li>
+                        <li class="list-group-item">
+                            <span>Phone: </span> <span data-ng-hide="ctCtrl.editMode" >{{ctCtrl.selectedContact.phone}} </span>
+                            <input type="text" data-ng-show="ctCtrl.editMode" data-ng-model="ctCtrl.selectedContact.phone">
+                        </li>
                     </ul>
+                    
 
                 </div>
             </div>
+
+            
         </div>
 
-                <div class="row" data-ng-controller="FooterController as footerCtrl">
+        <div class="row" data-ng-controller="FooterController as footerCtrl">
+            <ul class="list-group">
+                <li>
+                    <div class="row">
                         <h4> {{footerCtrl.appName}} </h4>
-                        <p></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
                         <span>{{footerCtrl.date}}</span>
-                </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
     </div>
 

@@ -23,7 +23,7 @@ const config = {
   devServer:{
     contentBase: path.join(__dirname, "/dist/"),
    // hot : true , 
-    port : 3000
+    port : 4000
   },
   module: {
     rules: [
@@ -115,7 +115,7 @@ const config = {
     new BrowserSyncPlugin({
         host: 'localhost',
         port: 1800,
-        proxy: 'http://localhost:3000/'
+        proxy: 'http://localhost:4000/'
       },
       {
         reload: false
