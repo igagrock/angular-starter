@@ -28,6 +28,15 @@ const config = {
   module: {
     rules: [
       {
+        test : /\.html$/,
+        exclude : /node_modules/,
+        use: [
+          {
+            loader: 'html-loader'
+          }
+        ]
+      },
+      {
         test: /src.*\.js$/,
         include: path.resolve(__dirname, 'src/app'),
         exclude: /node_modules/,
