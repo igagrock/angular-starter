@@ -4,8 +4,8 @@
  */
 
  import angular from 'angular';
- import caculatorComp from "./components/caculator/Caculator.Component";
- import contactComp from "./components/contact/Contact.Component"
+ import caculatorComp from "./components/caculator/Caculator.Module";
+ import contactComp from "./components/contact/Contact.Module"
 
  import buttons from 'bootstrap-css'
 

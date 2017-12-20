@@ -114,7 +114,7 @@ const config = {
             return context && context.indexOf('node_modules') >= 0;
           }
     }),
-  //  new UglifyJSPlugin({ test: /\.js($|\?)/i }),
+   new UglifyJSPlugin({ test: /\.js($|\?)/i }),
   //  new webpack.optimize.AggressiveSplittingPlugin({
   //       minSize: 30000, //Byte, split point. Default: 30720
   //       maxSize: 50000, //Byte, maxsize of per file. Default: 51200

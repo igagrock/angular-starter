@@ -7,7 +7,7 @@ import appNameService from '../../services/AppConfig.Service';
 import contactCrtl from './Contact.Controller';
 import headerController from './Header.Controller';
 import footerController from './Footer.Controller';
-import appTemplate from '../../directives/my-app.html';
+import myAppDirective from '../../directives/MyApp.Directive'
 
 
  var ContactModule = angular.module("ContactModule",[])
@@ -17,11 +17,7 @@ import appTemplate from '../../directives/my-app.html';
     .value("AppName", appName)
     .service("AppConfig" , appNameService)
     .service("contacts", contactService)
-    .directive("myApp",function(){
-        return {
-            template:  appTemplate   
-        }
-    });
+    .directive("myApp",myAppDirective);
 
 
 export {ContactModule};
