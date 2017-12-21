@@ -2,9 +2,9 @@
 
 export default class AppConfig{
 
-    constructor(AppName){
+    constructor(AppName, dateFilter){
         this.title = AppName;
-        this.date = "   Date: "+new Date();
+        this.date =  dateFilter(new Date() , 'M-d-yyyy');
     }
 }
 

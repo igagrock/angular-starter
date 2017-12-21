@@ -11,7 +11,7 @@ const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const config = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    vendor : ["jquery","lodash" , "angular"],
+    vendor : ["jquery","lodash" , "angular" ,"bootstrap"],
     app : './app/app.js' 
   },
   output: {
@@ -59,7 +59,8 @@ const config = {
       },
       {  
         test: /\.css$/,
-        include: path.resolve(__dirname, 'node_modules/bootstrap-css/lib/'),
+        // include: path.resolve(__dirname, 'node_modules/bootstrap-css/lib/'),
+        include: path.resolve(__dirname, 'src/app'),
         use: ExtractTextPlugin.extract({
           fallback :'style-loader',
            use : [
@@ -95,14 +96,21 @@ const config = {
   ]
   },
   plugins:[
+
     new CleanWebpackPlugin(['dist']),
-    new ExtractTextPlugin('styles/app.css'),
     new HtmlWebpackPlugin({
       title : 'Webpack2 +angular',
       template :'./app/app.html',
       chunks : 'app',
       cache : true
     }),
+    new webpack.ProvidePlugin({ // inject ES5 modules as global vars
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Tether: 'tether'
+    }),
+    new ExtractTextPlugin('styles/app.css'),
     new webpack.optimize.CommonsChunkPlugin({
           name: 'vendor' , // Specify the common bundle's name.
           filename : 'js/vendor-[hash].js',
@@ -114,13 +122,8 @@ const config = {
             return context && context.indexOf('node_modules') >= 0;
           }
     }),
-   new UglifyJSPlugin({ test: /\.js($|\?)/i }),
-  //  new webpack.optimize.AggressiveSplittingPlugin({
-  //       minSize: 30000, //Byte, split point. Default: 30720
-  //       maxSize: 50000, //Byte, maxsize of per file. Default: 51200
-  //      // chunkOverhead: 0, //Default: 0
-  //      // entryChunkMultiplicator: 1, //Default: 1
-  //     }),
+  // new UglifyJSPlugin({ test: /\.js($|\?)/i }),
+
     new BrowserSyncPlugin({
         host: 'localhost',
         port: 1800,

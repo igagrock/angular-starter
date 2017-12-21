@@ -71,7 +71,23 @@
 
         <div class="row" data-ng-controller="FooterController as footerCtrl">
             <ul class="list-group-item list-group-item-action">
-                <li data-my-app></li>
+             <li>
+                <my-app scope = 'footerCtrl' > </my-app>
+             </li>
+              
+            
+            </ul>
+        </div>
+
+        <div class="row" data-ng-controller="timeController as timeCtrl">
+            <ul class="list-group-item list-group-item-action">
+             <li class="list-group-item ">
+                <input type="text" data-ng-model="timeCtrl.format" />
+             </li> <li class="list-group-item ">
+                Current time is: <span my-current-time="timeCtrl.format"></span>
+             </li>
+              
+            
             </ul>
         </div>
 
