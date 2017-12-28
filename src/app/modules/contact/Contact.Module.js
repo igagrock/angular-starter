@@ -15,7 +15,7 @@ import timeController from './Time.Controller'
 
 
 
- var ContactModule = angular.module("ContactModule",[])
+export default angular.module("ContactModule",[])
     .controller("ContactController", contactCrtl) 
     .controller("HeaderController", headerController)
     .controller("FooterController",footerController)
@@ -24,6 +24,5 @@ import timeController from './Time.Controller'
     .service("AppConfig" , appNameService)
     .service("contacts", contactService)
     .directive("myApp",myAppDirective)
-    .directive("myCurrentTime" , myCurrentTime);
-
-export {ContactModule};
+    .directive("myCurrentTime" , myCurrentTime)
+    .name

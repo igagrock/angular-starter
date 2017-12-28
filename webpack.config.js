@@ -12,7 +12,7 @@ const config = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     vendor : ["jquery","lodash" , "angular" ,"bootstrap"],
-    app : './app/app.js' 
+    app : './app/app.module.js' 
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

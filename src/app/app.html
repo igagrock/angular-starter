@@ -10,7 +10,7 @@
 
 <body>
 
-    <div class="container" data-ng-app="ContactModule">
+    <div class="container" data-ng-app="mainApp">
 
         <div class="row" data-ng-controller="HeaderController as headerCtrl">
             <h4> {{headerCtrl.appName}} </h4>
@@ -68,6 +68,13 @@
 
             
         </div>
+
+        <hr/>
+        <div class="container" data-ng-app="phoneList">
+            <phone-list></phone-list>
+        </div>
+       
+
 
         <div class="row" data-ng-controller="FooterController as footerCtrl">
             <ul class="list-group-item list-group-item-action">
